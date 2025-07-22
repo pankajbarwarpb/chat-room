@@ -1,0 +1,42 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --watch src --ext ts --exec ts-node src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "mikro:generate": "npm run build && npx mikro-orm migration:create",
+    "mikro:migrate": "npm run build && npx mikro-orm migration:up",
+    "mikro:refresh": "npm run build && npx mikro-orm schema:refresh --run",
+    "mikro:drop": "npm run build && npx mikro-orm schema:drop --confirm"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@mikro-orm/cli": "^6.4.16",
+    "@mikro-orm/migrations": "^6.4.16",
+    "@types/bcrypt": "^6.0.0",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^24.1.0",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@mikro-orm/core": "^6.4.16",
+    "@mikro-orm/postgresql": "^6.4.16",
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.16.3",
+    "reflect-metadata": "^0.2.2",
+    "tsyringe": "^4.10.0",
+    "zod": "^4.0.5"
+  }
+}
